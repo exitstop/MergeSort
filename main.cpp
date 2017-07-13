@@ -6,23 +6,18 @@ using std::endl;
 
 void Merge(int *A, unsigned int p,  unsigned int q, unsigned int r){
 
-    if(true){
-        int lo = ceil((r-p)/2);
-        if(lo == 0) { lo =1; p--;}
-        cout << p << " " <<   p+lo << " "<< r  << " "  << " :::: ";
+    int lo = ceil((r-p)/2);
+    if(lo == 0) { lo =1; p--;}
 
- 
-            for(unsigned int i = p; i < p + lo; i++){
-                for(unsigned int ii = r-1; ii >= p + lo; ii--){
-                    if(A[i] > A[ii]){
-                        int tmp = A[i];
-                        A[i] = A[ii];
-                        A[ii] = tmp;
-                    }
+        for(unsigned int i = p; i < p + lo; i++){
+            for(unsigned int ii = r-1; ii >= p + lo; ii--){
+                if(A[i] > A[ii]){
+                    int tmp = A[i];
+                    A[i] = A[ii];
+                    A[ii] = tmp;
                 }
             }
-
-    }
+    }  
 
 
 }
@@ -30,10 +25,8 @@ void Sort(int *A, unsigned int p, unsigned int r){
    if(p < r){
         unsigned int q = ceil((p+r)/2);
 
-
         Sort(A, p, q);
-        Sort(A, q+1, r);       
-        
+        Sort(A, q+1, r);         
         
         Merge(A, p, q, r);
    } 
@@ -50,7 +43,7 @@ int main(int argc, char *argv[]){
     }
     cout  <<endl;
 
-    Sort(A, 3, sizeof(A)/sizeof(int));  // START Sort
+    Sort(A, 1, sizeof(A)/sizeof(int));  // START Sort
 
     cout << "end:   ";
     for(unsigned int i = 0; i < sizeof(A)/sizeof(int) ; i++){
